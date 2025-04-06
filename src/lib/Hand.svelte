@@ -11,6 +11,8 @@
     export let workers: Worker[];
     export let dick: Boost;
     export let hand: Boost;
+    export let orgasm: number;
+    export let can_orgasm: number;
 
     function ejaculate() {
         cum += dick.level;
@@ -22,6 +24,11 @@
         boost.price += Math.pow(5, boost.rank);
         buildings = buildings;
     }
+
+    function start_orgasm() {
+        can_orgasm = 0;
+        orgasm = 60;
+    }
 </script>
 
 <div class="window page">
@@ -30,7 +37,13 @@
             <div>
                 {cum} Cum
                 <br />
-                {CpS(dick, hand, buildings, workers)}/s
+                {#if orgasm > 0}
+                    <span style="color:gold"
+                        >{CpS(dick, hand, orgasm, buildings, workers)}/s</span
+                    >
+                {:else}
+                    {CpS(dick, hand, orgasm, buildings, workers)}/s
+                {/if}
             </div>
             <div>
                 <button class="ejaculate" on:click={ejaculate}>Branler</button>
@@ -82,9 +95,21 @@
                 {hand.name}
             </div>
         </div>
+
+        {#if can_orgasm > 0}
+            <button class="orgasm" on:click={start_orgasm}>Orgasme</button>
+        {/if}
+
+        {#if orgasm > 0}
+            <button class="orgasm" style="color:gold">
+                Orgasme en cours !
+                <br />
+                {orgasm}s restantes
+            </button>
+        {/if}
     </div>
 
-    <Taskbar bind:page />
+    <Taskbar bind:page bind:orgasm bind:can_orgasm />
 </div>
 
 <style>
@@ -101,5 +126,9 @@
         height: 200px;
         max-width: 40vw;
         max-height: 40vw;
+    }
+
+    button.orgasm {
+        width: 100%;
     }
 </style>

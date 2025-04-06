@@ -6,6 +6,8 @@
     export let page: string;
     export let cum: number;
     export let buildings: Building[];
+    export let orgasm: number;
+    export let can_orgasm: number;
 </script>
 
 <div class="window page">
@@ -15,5 +17,5 @@
         {/each}
     </div>
 
-    <Taskbar bind:page />
+    <Taskbar bind:page bind:orgasm bind:can_orgasm />
 </div>

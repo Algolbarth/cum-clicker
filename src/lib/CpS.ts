@@ -2,7 +2,7 @@ import { Boost } from "./Boost/Class";
 import { Building } from "./Building/Class";
 import { Worker } from "./Worker/Class";
 
-export function CpS(dick: Boost, hand: Boost, buildings: Building[], workers: Worker[]) {
+export function CpS(dick: Boost, hand: Boost, orgasm:number, buildings: Building[], workers: Worker[]) {
     let total: number = 0;
     total += dick.level * hand.level;
 
@@ -12,6 +12,10 @@ export function CpS(dick: Boost, hand: Boost, buildings: Building[], workers: Wo
 
     for (let i = 2; i < workers.length; i++) {
         total += workers[i].CpS();
+    }
+
+    if (orgasm > 0) {
+        total = total * 7;
     }
 
     return total;
