@@ -12,8 +12,6 @@
   let dick: Boost = new Boost("Bite", 1);
   let hand: Boost = new Boost("Main", 2);
   dick.level = 1;
-  let orgasm: number = 0;
-  let can_orgasm: number = 0;
 
   let buildind_list = [
     "Magasin X",
@@ -37,7 +35,7 @@
   let worker_list = [
     "Petite amie",
     "Maitresse",
-    "Travailleur du sexe",
+    "Travailleuse du sexe",
     "Acteur porno",
     "Réalisateur porno",
     "Cumologue",
@@ -53,8 +51,12 @@
     rank += 2;
   }
 
+  let orgasm: number = 0;
+  let can_orgasm: number = 0;
+  let excitement: number = 0;
+
   function step() {
-    cum += CpS(dick, hand, orgasm, buildings, workers);
+    cum += CpS(dick, hand, orgasm, excitement, buildings, workers);
 
     if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.005) {
       can_orgasm = 10;
@@ -65,6 +67,10 @@
     if (orgasm > 0) {
       orgasm--;
     }
+
+    if (excitement > 0) {
+      excitement--;
+    }
   }
 
   setInterval(step, 1000);
@@ -73,7 +79,17 @@
 </script>
 
 {#if page == "Hand"}
-  <Hand bind:page bind:cum bind:buildings bind:workers bind:dick bind:hand bind:orgasm bind:can_orgasm />
+  <Hand
+    bind:page
+    bind:cum
+    bind:buildings
+    bind:workers
+    bind:dick
+    bind:hand
+    bind:orgasm
+    bind:can_orgasm
+    bind:excitement
+  />
 {:else if page == "Buildings"}
   <Buildings bind:page bind:cum bind:buildings bind:orgasm bind:can_orgasm />
 {:else if page == "Workers"}

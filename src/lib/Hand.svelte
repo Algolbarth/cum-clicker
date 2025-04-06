@@ -13,9 +13,13 @@
     export let hand: Boost;
     export let orgasm: number;
     export let can_orgasm: number;
+    export let excitement: number;
 
     function ejaculate() {
         cum += dick.level;
+        if (excitement < 100) {
+            excitement++;
+        }
     }
 
     function buy(boost: Boost) {
@@ -39,14 +43,19 @@
                 <br />
                 {#if orgasm > 0}
                     <span style="color:gold"
-                        >{CpS(dick, hand, orgasm, buildings, workers)}/s</span
+                        >{CpS(dick, hand, orgasm, excitement, buildings, workers)}/s</span
                     >
                 {:else}
-                    {CpS(dick, hand, orgasm, buildings, workers)}/s
+                    {CpS(dick, hand, orgasm, excitement, buildings, workers)}/s
                 {/if}
             </div>
             <div>
                 <button class="ejaculate" on:click={ejaculate}>Branler</button>
+            </div>
+            <div class="jauge">
+                <div class="bar" style={"width:" + excitement + "%"}>
+                    {excitement}%
+                </div>
             </div>
         </div>
 
@@ -119,6 +128,22 @@
 
         margin-top: 5vh;
         margin-bottom: 5vh;
+    }
+
+    div.jauge {
+        background: grey;
+        border-radius: 5px;
+        margin-left: 14vw;
+        margin-top: 1vh;
+        width: 70vw;
+        color: black;
+    }
+
+    div.bar {
+        background: white;
+        text-align: left;
+        border-radius: 5px;
+        padding-left: 8px;
     }
 
     button.ejaculate {
