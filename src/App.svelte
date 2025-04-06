@@ -56,7 +56,7 @@
   function step() {
     cum += CpS(dick, hand, orgasm, buildings, workers);
 
-    if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.05) {
+    if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.005) {
       can_orgasm = 10;
     }
     if (can_orgasm > 0) {
