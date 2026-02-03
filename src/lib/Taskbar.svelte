@@ -29,6 +29,23 @@
             }}>Bâtiments</button
         >
     </div>
+    <div class="cell">
+        <button
+            on:click={() => {
+                page = "Skills";
+            }}>Compétences</button
+        >
+    </div>
+    <div class="cell">
+        
+    </div>
+    <div class="cell">
+        <button
+            on:click={() => {
+                page = "Settings";
+            }}>Options</button
+        >
+    </div>
 </div>
 
 <style>

@@ -2,6 +2,8 @@
   import Hand from "./lib/Hand.svelte";
   import Buildings from "./lib/Building/Page.svelte";
   import Workers from "./lib/Worker/Page.svelte";
+  import Skills from "./lib/Skills/Page.svelte";
+  import Settings from "./lib/Settings.svelte";
   import { Boost } from "./lib/Boost/Class";
   import { Building } from "./lib/Building/Class";
   import { Worker } from "./lib/Worker/Class";
@@ -59,6 +61,8 @@
   let can_orgasm: number = 0;
   let excitement: number = 0;
 
+  let skill: number = 0;
+
   function step() {
     cum += CpS(dick, hand, orgasm, excitement, buildings, workers);
 
@@ -98,4 +102,8 @@
   <Buildings bind:page bind:cum bind:buildings bind:orgasm bind:can_orgasm />
 {:else if page == "Workers"}
   <Workers bind:page bind:cum bind:workers bind:orgasm bind:can_orgasm />
+{:else if page == "Skills"}
+  <Skills bind:page bind:skill bind:orgasm bind:can_orgasm />
+{:else if page == "Settings"}
+  <Settings bind:page bind:orgasm bind:can_orgasm />
 {/if}
