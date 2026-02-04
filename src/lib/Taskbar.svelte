@@ -1,6 +1,7 @@
 <script lang="ts">
     export let page: string;
     export let orgasm: number;
+    export let big_orgasm: number;
     export let can_orgasm: number;
 </script>
 
@@ -11,7 +12,7 @@
                 page = "Hand";
             }}
         >
-            {#if orgasm > 0}<span style="color:gold">Cum</span>{:else}Cum{/if}
+            {#if big_orgasm > 0}<span style="color:orangegold">Cum</span>{:else if orgasm > 0}<span style="color:gold">Cum</span>{:else}Cum{/if}
             {#if can_orgasm > 0}<span style="color:gold">!</span>{/if}
         </button>
     </div>

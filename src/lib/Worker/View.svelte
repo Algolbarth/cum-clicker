@@ -10,7 +10,6 @@
         cum -= worker.price;
         worker.level++;
         worker.price += Math.pow(5, worker.rank);
-        workers = workers;
     }
 </script>
 
@@ -22,6 +21,7 @@
                     class="buy"
                     on:click={() => {
                         buy(worker);
+                        workers = workers;
                     }}
                 >
                     Acheter ({worker.price})

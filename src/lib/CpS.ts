@@ -2,7 +2,7 @@ import { Boost } from "./Boost/Class";
 import { Building } from "./Building/Class";
 import { Worker } from "./Worker/Class";
 
-export function CpS(dick: Boost, hand: Boost, orgasm: number, excitement: number, buildings: Building[], workers: Worker[]) {
+export function CpS(dick: Boost, hand: Boost, orgasm: number, big_orgasm: number, excitement: number, buildings: Building[], workers: Worker[]) {
     let total: number = 0;
     let multiplier: number = 1;
 
@@ -25,6 +25,10 @@ export function CpS(dick: Boost, hand: Boost, orgasm: number, excitement: number
     //si un orgasme est en cours alors le Cps est multiplié par 6.9
     if (orgasm > 0) {
         multiplier += 6.9;
+    }
+    //si un énoooorme orgasme est en cours alors le Cps est multiplié par 69
+    if (big_orgasm > 0) {
+        multiplier += 69;
     }
 
     total = Math.floor(total * multiplier);

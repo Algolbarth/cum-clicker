@@ -8,6 +8,7 @@
     export let dick: Boost;
     export let hand: Boost;
     export let orgasm: number;
+    export let big_orgasm: number;
     export let buildings: Building[];
     export let workers: Worker[];
     export let excitement: number;
@@ -19,9 +20,9 @@
     <br />
 
     {#if orgasm > 0}
-        <span style="color:gold">{CpS(dick, hand, orgasm, excitement, buildings, workers)}/s</span>
+        <span style="color:gold">{CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers)}/s</span>
     {:else}
-        {CpS(dick, hand, orgasm, excitement, buildings, workers)}/s
+        {CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers)}/s
     {/if}
 </div>
 

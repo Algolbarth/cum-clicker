@@ -5,6 +5,7 @@
     export let dick: Boost;
     export let hand: Boost;
     export let orgasm: number;
+    export let big_orgasm: number;
     export let can_orgasm: number;
     export let excitement: number;
 
@@ -17,13 +18,19 @@
 
     function buy(boost: Boost) {
         cum -= boost.price;
+
         boost.level++;
         boost.price += Math.pow(5, boost.rank);
     }
 
     function start_orgasm() {
         can_orgasm = 0;
-        orgasm = 60;
+
+        if (Math.random() < 0.1) {
+            big_orgasm = 60;
+        } else {
+            orgasm = 60;
+        }
     }
 </script>
 
@@ -47,6 +54,7 @@
                     class="buy"
                     on:click={() => {
                         buy(dick);
+                        dick = dick;
                     }}
                 >
                     Acheter ({dick.price})
@@ -72,6 +80,7 @@
                     class="buy"
                     on:click={() => {
                         buy(hand);
+                        hand = hand;
                     }}
                 >
                     Acheter ({hand.price})
@@ -96,9 +105,17 @@
 
     {#if orgasm > 0}
         <button class="orgasm" style="color:gold">
-            Orgasme en cours !
+            Orgasme en cours ! (Cum x6,9)
             <br />
             {orgasm}s restantes
+        </button>
+    {/if}
+
+    {#if big_orgasm > 0}
+        <button class="orgasm" style="color:gold">
+            Énoooooorme Orgasme en cours ! (Cum x69)
+            <br />
+            {big_orgasm}s restantes
         </button>
     {/if}
 </div>

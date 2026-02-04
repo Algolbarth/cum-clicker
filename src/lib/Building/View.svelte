@@ -10,7 +10,6 @@
         cum -= building.price;
         building.level++;
         building.price += Math.pow(5, building.rank);
-        buildings = buildings;
     }
 </script>
 
@@ -22,6 +21,7 @@
                     class="buy"
                     on:click={() => {
                         buy(building);
+                        buildings = buildings;
                     }}
                 >
                     Acheter ({building.price})

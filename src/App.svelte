@@ -22,13 +22,14 @@
   let workers: Worker[] = init_log.workers;
 
   let orgasm: number = 0;
+  let big_orgasm: number = 0;
   let can_orgasm: number = 0;
   let excitement: number = 0;
 
   let skill: number = 0;
 
   function step() {
-    cum += CpS(dick, hand, orgasm, excitement, buildings, workers);
+    cum += CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers);
 
     //si aucun orgasme en cours alors ya 0.5% de chance d'en trouver un, le joueur a 10s pour le déclencher
     if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.005) {
@@ -55,10 +56,10 @@
 </script>
 
 <div class="window page">
-  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:buildings bind:workers bind:excitement />
+  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement />
 
   {#if page == "Hand"}
-    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:can_orgasm bind:excitement />
+    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Buildings"}
     <Buildings bind:cum bind:buildings />
   {:else if page == "Workers"}
@@ -69,5 +70,5 @@
     <Settings />
   {/if}
 
-  <Taskbar bind:page bind:orgasm bind:can_orgasm />
+  <Taskbar bind:page bind:orgasm bind:big_orgasm bind:can_orgasm />
 </div>
