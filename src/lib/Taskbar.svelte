@@ -36,9 +36,7 @@
             }}>Compétences</button
         >
     </div>
-    <div class="cell">
-        
-    </div>
+    <div class="cell"></div>
     <div class="cell">
         <button
             on:click={() => {
@@ -53,7 +51,6 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         text-align: center;
-        width: 98vw;
     }
 
     div.cell {

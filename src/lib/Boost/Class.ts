@@ -8,5 +8,5 @@ export class Boost {
         this.name = name;
         this.rank = rank;
         this.price = Math.pow(5, rank);
-    }
-}
+    };
+};

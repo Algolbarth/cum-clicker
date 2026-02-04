@@ -16,7 +16,7 @@ export function CpS(dick: Boost, hand: Boost, orgasm: number, excitement: number
         total += workers[i].CpS();
     }
 
-    multiplier += excitement/100;
+    multiplier += excitement / 100;
 
     if (orgasm > 0) {
         multiplier += 7;
@@ -25,4 +25,4 @@ export function CpS(dick: Boost, hand: Boost, orgasm: number, excitement: number
     total = total * multiplier;
 
     return Math.floor(total);
-}
+};

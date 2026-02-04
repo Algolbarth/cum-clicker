@@ -59,7 +59,7 @@ div.window {
 
 div.page {
   display: grid;
-  grid-template-rows: 9fr 1fr;
+  grid-template-rows: 1fr 8fr 1fr;
 }
 
 div.body {

@@ -8,6 +8,8 @@
   import { Building } from "./lib/Building/Class";
   import { Worker } from "./lib/Worker/Class";
   import { CpS } from "./lib/CpS";
+  import Taskbar from "./lib/Taskbar.svelte";
+  import Infobar from "./lib/Infobar.svelte";
 
   let cum: number = 0;
 
@@ -86,24 +88,35 @@
   let page = "Hand";
 </script>
 
-{#if page == "Hand"}
-  <Hand
-    bind:page
+<div class="window page">
+  <Infobar
     bind:cum
-    bind:buildings
-    bind:workers
     bind:dick
     bind:hand
     bind:orgasm
-    bind:can_orgasm
+    bind:buildings
+    bind:workers
     bind:excitement
   />
-{:else if page == "Buildings"}
-  <Buildings bind:page bind:cum bind:buildings bind:orgasm bind:can_orgasm />
-{:else if page == "Workers"}
-  <Workers bind:page bind:cum bind:workers bind:orgasm bind:can_orgasm />
-{:else if page == "Skills"}
-  <Skills bind:page bind:skill bind:orgasm bind:can_orgasm />
-{:else if page == "Settings"}
-  <Settings bind:page bind:orgasm bind:can_orgasm />
-{/if}
+
+  {#if page == "Hand"}
+    <Hand
+      bind:cum
+      bind:dick
+      bind:hand
+      bind:orgasm
+      bind:can_orgasm
+      bind:excitement
+    />
+  {:else if page == "Buildings"}
+    <Buildings bind:cum bind:buildings />
+  {:else if page == "Workers"}
+    <Workers bind:cum bind:workers />
+  {:else if page == "Skills"}
+    <Skills bind:skill />
+  {:else if page == "Settings"}
+    <Settings />
+  {/if}
+
+  <Taskbar bind:page bind:orgasm bind:can_orgasm />
+</div>
