@@ -15,34 +15,47 @@
             {#if can_orgasm > 0}<span style="color:gold">!</span>{/if}
         </button>
     </div>
+
     <div class="cell">
         <button
             on:click={() => {
                 page = "Workers";
-            }}>Personnages</button
+            }}
         >
+            Personnages
+        </button>
     </div>
+
     <div class="cell">
         <button
             on:click={() => {
                 page = "Buildings";
-            }}>Bâtiments</button
+            }}
         >
+            Bâtiments
+        </button>
     </div>
+
     <div class="cell">
         <button
             on:click={() => {
                 page = "Skills";
-            }}>Compétences</button
+            }}
         >
+            Compétences
+        </button>
     </div>
+
     <div class="cell"></div>
+
     <div class="cell">
         <button
             on:click={() => {
                 page = "Settings";
-            }}>Options</button
+            }}
         >
+            Options
+        </button>
     </div>
 </div>
 

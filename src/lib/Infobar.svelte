@@ -15,11 +15,11 @@
 
 <div class="body infobar">
     {cum} Cum
+
     <br />
+
     {#if orgasm > 0}
-        <span style="color:gold"
-            >{CpS(dick, hand, orgasm, excitement, buildings, workers)}/s</span
-        >
+        <span style="color:gold">{CpS(dick, hand, orgasm, excitement, buildings, workers)}/s</span>
     {:else}
         {CpS(dick, hand, orgasm, excitement, buildings, workers)}/s
     {/if}

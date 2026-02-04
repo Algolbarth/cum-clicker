@@ -32,6 +32,7 @@
         <div>
             <button class="ejaculate" on:click={ejaculate}>Branler</button>
         </div>
+
         <div class="jauge">
             <div class="bar" style={"width:" + excitement + "%"}>
                 {excitement}%
@@ -46,15 +47,19 @@
                     class="buy"
                     on:click={() => {
                         buy(dick);
-                    }}>Acheter ({dick.price})</button
+                    }}
                 >
+                    Acheter ({dick.price})
+                </button>
             {:else}
                 <button class="buy desactivate">Acheter ({dick.price})</button>
             {/if}
         </div>
+
         <div class="level">
             Nv {dick.level}
         </div>
+
         <div class="name">
             {dick.name}
         </div>
@@ -67,15 +72,19 @@
                     class="buy"
                     on:click={() => {
                         buy(hand);
-                    }}>Acheter ({hand.price})</button
+                    }}
                 >
+                    Acheter ({hand.price})
+                </button>
             {:else}
                 <button class="buy desactivate">Acheter ({hand.price})</button>
             {/if}
         </div>
+
         <div class="level">
             Nv {hand.level}
         </div>
+
         <div class="name">
             {hand.name}
         </div>

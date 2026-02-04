@@ -4,60 +4,22 @@
   import Workers from "./lib/Worker/Page.svelte";
   import Skills from "./lib/Skills/Page.svelte";
   import Settings from "./lib/Settings.svelte";
-  import { Boost } from "./lib/Boost/Class";
-  import { Building } from "./lib/Building/Class";
-  import { Worker } from "./lib/Worker/Class";
-  import { CpS } from "./lib/CpS";
   import Taskbar from "./lib/Taskbar.svelte";
   import Infobar from "./lib/Infobar.svelte";
+  import { CpS } from "./lib/CpS";
+  import { InitBoost } from "./lib/Boost/InitBoost";
+  import type { Boost } from "./lib/Boost/Class";
+  import type { Building } from "./lib/Building/Class";
+  import type { Worker } from "./lib/Worker/Class";
 
   let cum: number = 0;
 
-  let dick: Boost = new Boost("Bite", 1);
-  let hand: Boost = new Boost("Main", 2);
-  dick.level = 1;
-
-  let buildind_list = [
-    "Magasin X",
-    "Maison close",
-    "Cinéma porno",
-    "Banque de sperme",
-    "Site porno",
-    "Lac de cum",
-    "Pompe à cum",
-    "Usine à cum",
-    "Data center",
-    "Temple du sexe",
-    "Voie lactée",
-    "Portail vers la cum zone",
-  ];
-  let buildings: Building[] = [];
-  let rank: number = 4;
-  for (const name of buildind_list) {
-    buildings.push(new Building(name, rank));
-    rank += 2;
-  }
-
-  let worker_list = [
-    "Petite amie",
-    "Maitresse",
-    "Travailleuse du sexe",
-    "Acteur porno",
-    "Réalisateur porno",
-    "HH chan",
-    "Cumologue",
-    "Alchimiste",
-    "Branlix 2000",
-    "Magicien de cum",
-    "Golem de cum",
-    "Élémentaire de cum",
-  ];
-  let workers: Worker[] = [];
-  rank = 3;
-  for (const name of worker_list) {
-    workers.push(new Worker(name, rank));
-    rank += 2;
-  }
+  //on initialise les valeurs pour les boosts
+  let init_log = InitBoost();
+  let dick: Boost = init_log.dick;
+  let hand: Boost = init_log.hand;
+  let buildings: Building[] = init_log.buildings;
+  let workers: Worker[] = init_log.workers;
 
   let orgasm: number = 0;
   let can_orgasm: number = 0;
@@ -68,16 +30,20 @@
   function step() {
     cum += CpS(dick, hand, orgasm, excitement, buildings, workers);
 
+    //si aucun orgasme en cours alors ya 0.5% de chance d'en trouver un, le joueur a 10s pour le déclencher
     if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.005) {
       can_orgasm = 10;
     }
     if (can_orgasm > 0) {
       can_orgasm--;
     }
+
+    //la durée de l'orgasme diminue au fur et à mesure
     if (orgasm > 0) {
       orgasm--;
     }
 
+    //la jauge d'excitation diminue petit à petit
     if (excitement > 0) {
       excitement--;
     }
@@ -89,25 +55,10 @@
 </script>
 
 <div class="window page">
-  <Infobar
-    bind:cum
-    bind:dick
-    bind:hand
-    bind:orgasm
-    bind:buildings
-    bind:workers
-    bind:excitement
-  />
+  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:buildings bind:workers bind:excitement />
 
   {#if page == "Hand"}
-    <Hand
-      bind:cum
-      bind:dick
-      bind:hand
-      bind:orgasm
-      bind:can_orgasm
-      bind:excitement
-    />
+    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Buildings"}
     <Buildings bind:cum bind:buildings />
   {:else if page == "Workers"}

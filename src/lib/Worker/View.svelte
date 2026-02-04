@@ -22,17 +22,19 @@
                     class="buy"
                     on:click={() => {
                         buy(worker);
-                    }}>Acheter ({worker.price})</button
+                    }}
                 >
+                    Acheter ({worker.price})
+                </button>
             {:else}
-                <button class="buy desactivate"
-                    >Acheter ({worker.price})</button
-                >
+                <button class="buy desactivate">Acheter ({worker.price})</button>
             {/if}
         </div>
+
         <div class="level">
             Nv {worker.level}
         </div>
+
         <div class="name">
             {worker.name}
         </div>
