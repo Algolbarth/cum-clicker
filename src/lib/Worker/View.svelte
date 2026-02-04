@@ -44,3 +44,9 @@
         </div>
     </div>
 {/if}
+
+<style>
+    button.buy {
+        width: 100%;
+    }
+</style>

@@ -12,7 +12,7 @@
                 page = "Hand";
             }}
         >
-            {#if big_orgasm > 0}<span style="color:orangegold">Cum</span>{:else if orgasm > 0}<span style="color:gold">Cum</span>{:else}Cum{/if}
+            {#if big_orgasm > 0}<span style="color:goldenrod">Cum</span>{:else if orgasm > 0}<span style="color:gold">Cum</span>{:else}Cum{/if}
             {#if can_orgasm > 0}<span style="color:gold">!</span>{/if}
         </button>
     </div>

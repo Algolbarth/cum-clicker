@@ -19,7 +19,9 @@
 
     <br />
 
-    {#if orgasm > 0}
+    {#if big_orgasm > 0}
+        <span style="color:goldenrod">{CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers)}/s</span>
+    {:else if orgasm > 0}
         <span style="color:gold">{CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers)}/s</span>
     {:else}
         {CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers)}/s

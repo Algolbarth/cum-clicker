@@ -1,0 +1,49 @@
+div.window {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: #242424;
+
+    overflow-y: auto;
+}
+
+div.page {
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
+}
+
+div.body {
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+    width: 98vw;
+}
+
+div.boost {
+    display: grid;
+    grid-template-columns: 7fr 3fr 4fr 3fr;
+    max-width: 100%;
+
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+
+    padding: 8px;
+
+    margin-bottom: 8px;
+}
+
+div.level {
+    margin: auto;
+}
+
+div.center {
+    margin-top: auto;
+    margin-bottom: auto;
+}

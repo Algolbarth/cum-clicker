@@ -116,7 +116,7 @@
     {/if}
 
     {#if big_orgasm > 0}
-        <button class="orgasm" style="color:gold">
+        <button class="orgasm" style="color:goldenrod">
             Énoooooorme Orgasme en cours ! (Cum x69)
             <br />
             {big_orgasm}s restantes
@@ -154,6 +154,10 @@
         height: 200px;
         max-width: 40vw;
         max-height: 40vw;
+    }
+
+    button.buy {
+        width: 100%;
     }
 
     button.orgasm {
