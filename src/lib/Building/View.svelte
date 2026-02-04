@@ -35,8 +35,12 @@
             Nv {building.level}
         </div>
 
-        <div class="name">
+        <div class="center">
             {building.name}
+        </div>
+
+        <div class="center">
+            {building.CpS()}/s
         </div>
     </div>
 {/if}

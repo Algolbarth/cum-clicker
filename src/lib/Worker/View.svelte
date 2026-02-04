@@ -35,8 +35,12 @@
             Nv {worker.level}
         </div>
 
-        <div class="name">
+        <div class="center">
             {worker.name}
+        </div>
+
+        <div class="center">
+            {worker.CpS()}/s
         </div>
     </div>
 {/if}

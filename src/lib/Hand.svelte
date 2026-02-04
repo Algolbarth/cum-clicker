@@ -68,7 +68,7 @@
             Nv {dick.level}
         </div>
 
-        <div class="name">
+        <div class="center">
             {dick.name}
         </div>
     </div>
@@ -94,8 +94,12 @@
             Nv {hand.level}
         </div>
 
-        <div class="name">
+        <div class="center">
             {hand.name}
+        </div>
+
+        <div class="center">
+            {hand.level * dick.level}/s
         </div>
     </div>
 
