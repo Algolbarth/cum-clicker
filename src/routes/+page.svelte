@@ -46,6 +46,9 @@
     if (orgasm > 0) {
       orgasm--;
     }
+    if (big_orgasm > 0) {
+      big_orgasm--;
+    }
 
     //la jauge d'excitation diminue petit à petit
     if (excitement > 0) {
@@ -59,33 +62,16 @@
 </script>
 
 <div class="window page">
-  <Infobar
-    bind:cum
-    bind:dick
-    bind:hand
-    bind:orgasm
-    bind:big_orgasm
-    bind:buildings
-    bind:workers
-    bind:excitement
-  />
+  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement />
 
   {#if page == "Hand"}
-    <Hand
-      bind:cum
-      bind:dick
-      bind:hand
-      bind:orgasm
-      bind:big_orgasm
-      bind:can_orgasm
-      bind:excitement
-    />
+    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Buildings"}
     <Buildings bind:cum bind:buildings />
   {:else if page == "Workers"}
     <Workers bind:cum bind:workers />
   {:else if page == "Skills"}
-    <Skills bind:skill />
+    <Skills bind:cum bind:skill bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Settings"}
     <Settings />
   {/if}

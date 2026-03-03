@@ -9,4 +9,9 @@ export class Boost {
         this.rank = rank;
         this.price = Math.pow(5, rank);
     };
+
+    reset() {
+        this.level = 0;
+        this.price = Math.pow(5, this.rank);
+    };
 };

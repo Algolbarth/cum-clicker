@@ -26,6 +26,7 @@
     function start_orgasm() {
         can_orgasm = 0;
 
+        // 10% de chance qu'un orgasme soit 10 fois plus puissant
         if (Math.random() < 0.1) {
             big_orgasm = 60;
         } else {
