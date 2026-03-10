@@ -13,7 +13,7 @@ Download release files here :
 ### [🐧 For Linux](https://github.com/Algolbarth/cum-clicker/blob/main/release/linux)
 
 ## 🛠️ Requirements for dev
-MoH use Tauri (typescript/svelte + Rust) to build a webapp and a desktop application with the same architecture. Deno is used to compile typescript.
+Cum-Clicker use Tauri (typescript/svelte + Rust) to build a webapp and a desktop application with the same architecture. Deno is used to compile typescript.
 
 ### [⚙️ Rust](https://github.com/rust-lang/rust)
 
