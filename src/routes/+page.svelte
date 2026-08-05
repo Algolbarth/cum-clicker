@@ -1,19 +1,21 @@
 <script lang="ts">
   import Hand from "../lib/hand.svelte";
-  import Buildings from "../lib/building/page.svelte";
-  import Workers from "../lib/worker/page.svelte";
+  import Buildings from "../lib/boosts/building/page.svelte";
+  import Workers from "../lib/boosts/worker/page.svelte";
   import Skills from "../lib/skills/page.svelte";
   import Settings from "../lib/settings.svelte";
   import Taskbar from "../lib/taskbar.svelte";
   import Infobar from "../lib/infobar.svelte";
   import { CpS } from "../lib/cps";
-  import { InitBoost } from "../lib/boost/init";
-  import type { Boost } from "../lib/boost/class";
-  import type { Building } from "../lib/building/class";
-  import type { Worker } from "../lib/worker/class";
+  import { InitBoost } from "../lib/boosts/init";
+  import type { Boost } from "../lib/boosts/class";
+  import type { Building } from "../lib/boosts/building/class";
+  import type { Worker } from "../lib/boosts/worker/class";
   import "../styles/app.css";
   import "../styles/div.css";
   import "../styles/button.css";
+  import { skill_list } from "$lib/skills/list";
+  import type { Skill } from "$lib/skills/class";
 
   let cum: number = 0;
 
@@ -29,10 +31,11 @@
   let can_orgasm: number = 0;
   let excitement: number = 0;
 
-  let skill: number = 0;
+  let skill_point: number = 6;
+  let skills: Skill[] = skill_list;
 
   function step() {
-    cum += CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers);
+    cum += CpS(dick, hand, orgasm, big_orgasm, excitement, buildings, workers, skills);
 
     //si aucun orgasme en cours alors ya 0.5% de chance d'en trouver un, le joueur a 10s pour le déclencher
     if (orgasm == 0 && can_orgasm == 0 && Math.random() < 0.005) {
@@ -62,16 +65,16 @@
 </script>
 
 <div class="window page">
-  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement />
+  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement bind:skills />
 
   {#if page == "Hand"}
-    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
+    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement bind:skills />
   {:else if page == "Buildings"}
     <Buildings bind:cum bind:buildings />
   {:else if page == "Workers"}
     <Workers bind:cum bind:workers />
   {:else if page == "Skills"}
-    <Skills bind:cum bind:skill bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
+    <Skills bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Settings"}
     <Settings />
   {/if}

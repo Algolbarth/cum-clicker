@@ -1,5 +1,7 @@
 <script lang="ts">
-    import { Boost } from "./boost/class";
+    import { Boost } from "./boosts/class";
+    import type { Skill } from "./skills/class";
+    import { getSkill } from "./skills/list";
 
     export let cum: number;
     export let dick: Boost;
@@ -8,9 +10,29 @@
     export let big_orgasm: number;
     export let can_orgasm: number;
     export let excitement: number;
+    export let skills: Skill[];
 
     function ejaculate() {
-        cum += dick.level;
+        let dick_boost = 1;
+        if (getSkill("Force", skills).unlock) {
+            dick_boost += 1;
+        }
+        if (getSkill("Vigueur", skills).unlock) {
+            dick_boost += 1;
+        }
+        if (getSkill("Bras de fer", skills).unlock) {
+            dick_boost += 1;
+        }
+        if (getSkill("Lancer de poids", skills).unlock) {
+            dick_boost += 1;
+        }
+        if (getSkill("Ceinture noire", skills).unlock) {
+            dick_boost += 1;
+        }
+        if (getSkill("Arme blanche", skills).unlock) {
+            dick_boost += 5;
+        }
+        cum += dick.level * dick_boost;
         if (excitement < 100) {
             excitement++;
         }
@@ -26,11 +48,30 @@
     function start_orgasm() {
         can_orgasm = 0;
 
+        let duration_boost = 0;
+        if (getSkill("Pénis de chair", skills).unlock) {
+            duration_boost += 6;
+        }
+        if (getSkill("Xanogène", skills).unlock) {
+            duration_boost += 6;
+        }
+        if (getSkill("Nitro XL", skills).unlock) {
+            duration_boost += 6;
+        }
+        if (getSkill("Greffe de peau", skills).unlock) {
+            duration_boost += 6;
+        }
+        if (getSkill("Cyborg", skills).unlock) {
+            duration_boost += 6;
+        }
+        if (getSkill("Engin taille transformers", skills).unlock) {
+            duration_boost += 30;
+        }
         // 10% de chance qu'un orgasme soit 10 fois plus puissant
         if (Math.random() < 0.1) {
-            big_orgasm = 60;
+            big_orgasm = 60 + duration_boost;
         } else {
-            orgasm = 60;
+            orgasm = 60 + duration_boost;
         }
     }
 </script>

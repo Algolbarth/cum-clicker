@@ -1,7 +1,7 @@
-import { Building } from "../building/class";
-import { buildind_list } from "../building/list";
-import { Worker } from "../worker/class";
-import { worker_list } from "../worker/list";
+import { Building } from "./building/class";
+import { buildind_list } from "./building/list";
+import { Worker } from "./worker/class";
+import { worker_list } from "./worker/list";
 import { Boost } from "./class";
 
 export let InitBoost = () => {

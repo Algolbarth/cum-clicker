@@ -1,9 +1,12 @@
 <script lang="ts">
-    import type { Boost } from "$lib/boost/class";
-    import type { Building } from "$lib/building/class";
-    import type { Worker } from "$lib/worker/class";
+    import SkillView from "./view.svelte";
+    import type { Boost } from "$lib/boosts/class";
+    import type { Building } from "$lib/boosts/building/class";
+    import type { Worker } from "$lib/boosts/worker/class";
+    import type { Skill } from "./class";
 
-    export let skill: number;
+    export let skills: Skill[];
+    export let skill_point: number;
     export let cum: number;
     export let dick: Boost;
     export let hand: Boost;
@@ -15,7 +18,7 @@
     export let excitement: number;
 
     function level_up() {
-        skill += gain_xp();
+        skill_point += gain_xp();
         reset();
     }
 
@@ -39,6 +42,7 @@
         excitement = 0;
 
         dick.reset();
+        dick.level = 1;
         hand.reset();
 
         for (const worker of workers) {
@@ -65,5 +69,14 @@
     <br />
     <br />
 
-    {skill} Point{#if skill > 1}s{/if} de compétence
+    {skill_point} Point{#if skill_point > 1}s{/if} de compétence
+
+    <br />
+    <br />
+    <hr />
+    <br />
+
+    {#each skills as skill}
+        <SkillView bind:skill_point bind:skill bind:skills />
+    {/each}
 </div>

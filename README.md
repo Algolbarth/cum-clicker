@@ -64,3 +64,27 @@ sudo apt install libwebkit2gtk-4.0-dev \
     libayatana-appindicator3-dev \
     librsvg2-dev
 ```
+
+### [Cum-Clicker Files](https://github.com/Algolbarth/cum-clicker)
+
+Clone Cum-Clicker repository :
+```
+git clone https://github.com/Algolbarth/cum-clicker.git
+cd cum-clicker
+deno install
+```
+
+Run Cum-Clicker as an webapp :
+```
+deno task dev
+```
+
+Build Cum-Clicker as a linux app :
+```
+deno task tauri build
+```
+
+Build Cum-Clicker as an Windows app :
+```
+deno task tauri build --runner cargo-xwin --target x86_64-pc-windows-msvc
+```

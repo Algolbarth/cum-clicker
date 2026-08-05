@@ -39,6 +39,20 @@ div.boost {
     margin-bottom: 8px;
 }
 
+div.skill {
+    display: grid;
+    grid-template-columns: 7fr 4fr 6fr;
+    max-width: 100%;
+
+    border: solid;
+    border-radius: 8px;
+    border-width: 2px;
+
+    padding: 8px;
+
+    margin-bottom: 8px;
+}
+
 div.level {
     margin: auto;
 }
@@ -46,4 +60,5 @@ div.level {
 div.center {
     margin-top: auto;
     margin-bottom: auto;
+    text-align: center;
 }

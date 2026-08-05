@@ -1,6 +1,6 @@
-import { Boost } from '../boost/class';
+import { Boost } from '../class';
 
-export class Building extends Boost {
+export class Worker extends Boost {
     CpS = () => {
         return this.level * Math.pow(2, this.rank);
     };
