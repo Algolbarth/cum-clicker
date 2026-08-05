@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { printNumber } from "$lib/print-number";
     import { Worker } from "./class";
 
     export let cum: number;
@@ -24,7 +25,7 @@
                         workers = workers;
                     }}
                 >
-                    Acheter ({worker.price})
+                    Acheter ({printNumber(worker.price)})
                 </button>
             {:else}
                 <button class="buy desactivate">Acheter ({worker.price})</button>
@@ -32,7 +33,7 @@
         </div>
 
         <div class="level">
-            Nv {worker.level}
+            Nv {printNumber(worker.level)}
         </div>
 
         <div class="center">
@@ -40,7 +41,7 @@
         </div>
 
         <div class="center">
-            {worker.CpS()}/s
+            {printNumber(worker.CpS())}/s
         </div>
     </div>
 {/if}

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Boost } from "./boosts/class";
+    import { printNumber } from "./print-number";
     import type { Skill } from "./skills/class";
     import { getSkill } from "./skills/list";
 
@@ -99,15 +100,15 @@
                         dick = dick;
                     }}
                 >
-                    Acheter ({dick.price})
+                    Acheter ({printNumber(dick.price)})
                 </button>
             {:else}
-                <button class="buy desactivate">Acheter ({dick.price})</button>
+                <button class="buy desactivate">Acheter ({printNumber(dick.price)})</button>
             {/if}
         </div>
 
         <div class="level">
-            Nv {dick.level}
+            Nv {printNumber(dick.level)}
         </div>
 
         <div class="center">
@@ -125,15 +126,15 @@
                         hand = hand;
                     }}
                 >
-                    Acheter ({hand.price})
+                    Acheter ({printNumber(hand.price)})
                 </button>
             {:else}
-                <button class="buy desactivate">Acheter ({hand.price})</button>
+                <button class="buy desactivate">Acheter ({printNumber(hand.price)})</button>
             {/if}
         </div>
 
         <div class="level">
-            Nv {hand.level}
+            Nv {printNumber(hand.level)}
         </div>
 
         <div class="center">
@@ -141,7 +142,7 @@
         </div>
 
         <div class="center">
-            {hand.level * dick.level}/s
+            {printNumber(hand.level * dick.level)}/s
         </div>
     </div>
 

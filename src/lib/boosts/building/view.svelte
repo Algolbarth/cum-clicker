@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { printNumber } from "$lib/print-number";
     import { Building } from "./class";
 
     export let cum: number;
@@ -24,17 +25,15 @@
                         buildings = buildings;
                     }}
                 >
-                    Acheter ({building.price})
+                    Acheter ({printNumber(building.price)})
                 </button>
             {:else}
-                <button class="buy desactivate"
-                    >Acheter ({building.price})</button
-                >
+                <button class="buy desactivate">Acheter ({building.price})</button>
             {/if}
         </div>
 
         <div class="level">
-            Nv {building.level}
+            Nv {printNumber(building.level)}
         </div>
 
         <div class="center">
@@ -42,7 +41,7 @@
         </div>
 
         <div class="center">
-            {building.CpS()}/s
+            {printNumber(building.CpS())}/s
         </div>
     </div>
 {/if}

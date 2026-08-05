@@ -4,6 +4,7 @@
     import type { Building } from "$lib/boosts/building/class";
     import type { Worker } from "$lib/boosts/worker/class";
     import type { Skill } from "./class";
+    import { printNumber } from "$lib/print-number";
 
     export let skills: Skill[];
     export let skill_point: number;
@@ -58,18 +59,18 @@
 <div class="body">
     {#if cum >= 1000000}
         <button on:click={level_up}>
-            Gagner {gain_xp()} niveau{#if gain_xp() > 1}x{/if}
+            Gagner {printNumber(gain_xp())} niveau{#if gain_xp() > 1}x{/if}
         </button>
 
         <span style="color:red">ATTENTION : Monter de niveau réinitialise votre progression !</span>
     {:else}
-        Encore {1000000 - cum} Cum pour gagner un niveau
+        Encore {printNumber(1000000 - cum)} Cum pour gagner un niveau
     {/if}
 
     <br />
     <br />
 
-    {skill_point} Point{#if skill_point > 1}s{/if} de compétence
+    {printNumber(skill_point)} Point{#if skill_point > 1}s{/if} de compétence
 
     <br />
     <br />
