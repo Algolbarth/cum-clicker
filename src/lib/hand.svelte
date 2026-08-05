@@ -84,9 +84,8 @@
         </div>
 
         <div class="jauge">
-            <div class="bar" style={"width:" + excitement + "%"}>
-                {excitement}%
-            </div>
+            <div class="bar" style={"width:" + excitement + "%"}>_</div>
+            <div class="score">{excitement}%</div>
         </div>
     </div>
 
@@ -179,17 +178,26 @@
     div.jauge {
         background: grey;
         border-radius: 5px;
-        margin-left: 14vw;
+        margin-left: 15vw;
         margin-top: 1vh;
         width: 70vw;
         color: black;
+        display: flex;
+        position: relative;
+    }
+
+    div.score {
+        padding: 8px;
+        z-index: 1;
     }
 
     div.bar {
+        height: 100%;
+        position: absolute;
         background: white;
         text-align: left;
         border-radius: 5px;
-        padding-left: 8px;
+        color: transparent;
     }
 
     button.ejaculate {
