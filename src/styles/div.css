@@ -7,13 +7,11 @@ div.window {
     height: 100vh;
 
     background: #242424;
-
-    overflow-y: auto;
 }
 
 div.page {
     display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 1fr 7.5fr 1.5fr;
 }
 
 div.body {
@@ -23,6 +21,8 @@ div.body {
     margin-bottom: 1vh;
 
     width: 98vw;
+
+    overflow-y: auto;
 }
 
 div.boost {

@@ -71,9 +71,11 @@
         margin-top: auto;
         margin-bottom: auto;
         padding: 2px;
+        height: 90%;
     }
 
     button {
         width: 100%;
+        height: 100%;
     }
 </style>
