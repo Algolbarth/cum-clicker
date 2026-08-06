@@ -18,6 +18,7 @@
   import type { Skill } from "$lib/skills/class";
 
   let cum: number = 0;
+  let lot: string = "1";
 
   //on initialise les valeurs pour les boosts
   let init_log = InitBoost();
@@ -31,7 +32,7 @@
   let can_orgasm: number = 0;
   let excitement: number = 0;
 
-  let skill_point: number = 6;
+  let skill_point: number = 0;
   let skills: Skill[] = skill_list;
 
   function step() {
@@ -65,14 +66,14 @@
 </script>
 
 <div class="window page">
-  <Infobar bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement bind:skills />
+  <Infobar bind:cum bind:lot bind:dick bind:hand bind:orgasm bind:big_orgasm bind:buildings bind:workers bind:excitement bind:skills />
 
   {#if page == "Hand"}
-    <Hand bind:cum bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement bind:skills />
+    <Hand bind:cum bind:lot bind:dick bind:hand bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement bind:skills />
   {:else if page == "Buildings"}
-    <Buildings bind:cum bind:buildings />
+    <Buildings bind:cum bind:lot bind:buildings />
   {:else if page == "Workers"}
-    <Workers bind:cum bind:workers />
+    <Workers bind:cum bind:lot bind:workers />
   {:else if page == "Skills"}
     <Skills bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Settings"}

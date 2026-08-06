@@ -5,6 +5,7 @@
     import { getSkill } from "./skills/list";
 
     export let cum: number;
+    export let lot: string;
     export let dick: Boost;
     export let hand: Boost;
     export let orgasm: number;
@@ -37,13 +38,6 @@
         if (excitement < 100) {
             excitement++;
         }
-    }
-
-    function buy(boost: Boost) {
-        cum -= boost.price;
-
-        boost.level++;
-        boost.price += Math.pow(5, boost.rank);
     }
 
     function start_orgasm() {
@@ -91,18 +85,18 @@
 
     <div class="boost">
         <div>
-            {#if cum >= dick.price}
+            {#if dick.canBuy(cum, lot)}
                 <button
                     class="buy"
                     on:click={() => {
-                        buy(dick);
+                        cum = dick.buy(cum, lot);
                         dick = dick;
                     }}
                 >
-                    Acheter ({printNumber(dick.price)})
+                    Acheter ({printNumber(dick.price(cum, lot))})
                 </button>
             {:else}
-                <button class="buy desactivate">Acheter ({printNumber(dick.price)})</button>
+                <button class="buy desactivate">Acheter ({printNumber(dick.price(cum, lot))})</button>
             {/if}
         </div>
 
@@ -117,18 +111,18 @@
 
     <div class="boost">
         <div>
-            {#if cum >= hand.price}
+            {#if hand.canBuy(cum, lot)}
                 <button
                     class="buy"
                     on:click={() => {
-                        buy(hand);
+                        cum = hand.buy(cum, lot);
                         hand = hand;
                     }}
                 >
-                    Acheter ({printNumber(hand.price)})
+                    Acheter ({printNumber(hand.price(cum, lot))})
                 </button>
             {:else}
-                <button class="buy desactivate">Acheter ({printNumber(hand.price)})</button>
+                <button class="buy desactivate">Acheter ({printNumber(hand.price(cum, lot))})</button>
             {/if}
         </div>
 

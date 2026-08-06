@@ -3,7 +3,7 @@ export function printNumber(value: number) {
     let print: string = "";
     let x = 0;
     for (let i = value_string.length - 1; i >= 0; i--) {
-        if (x % 3 == 0) {
+        if (x % 3 == 0 && x != 0) {
             print = " " + print;
         }
         print = value_string[i] + print;

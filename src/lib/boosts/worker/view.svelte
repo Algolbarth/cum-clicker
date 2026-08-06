@@ -3,32 +3,27 @@
     import { Worker } from "./class";
 
     export let cum: number;
+    export let lot: string;
     export let worker: Worker;
     export let workers: Worker[];
     export let index: number;
-
-    function buy(worker: Worker) {
-        cum -= worker.price;
-        worker.level++;
-        worker.price += Math.pow(5, worker.rank);
-    }
 </script>
 
 {#if index == 0 || workers[index - 1].level >= 10}
     <div class="boost">
         <div>
-            {#if cum >= worker.price}
+            {#if worker.canBuy(cum, lot)}
                 <button
                     class="buy"
                     on:click={() => {
-                        buy(worker);
+                        worker.buy(cum, lot);
                         workers = workers;
                     }}
                 >
-                    Acheter ({printNumber(worker.price)})
+                    Acheter ({printNumber(worker.price(cum, lot))})
                 </button>
             {:else}
-                <button class="buy desactivate">Acheter ({worker.price})</button>
+                <button class="buy desactivate">Acheter ({printNumber(worker.price(cum, lot))})</button>
             {/if}
         </div>
 
