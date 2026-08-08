@@ -17,6 +17,8 @@
   import { skill_list } from "$lib/skills/list";
   import type { Skill } from "$lib/skills/class";
 
+  let username: string | undefined;
+
   let cum: number = 0;
   let lot: string = "1";
 
@@ -77,7 +79,7 @@
   {:else if page == "Skills"}
     <Skills bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Settings"}
-    <Settings />
+    <Settings bind:username bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers />
   {/if}
 
   <Taskbar bind:page bind:orgasm bind:big_orgasm bind:can_orgasm />
