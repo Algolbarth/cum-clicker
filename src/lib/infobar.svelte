@@ -37,17 +37,19 @@
         {/if}
     </div>
 
-    <div style="text-align:right;">
-        {#each lots as l}
-            <button
-                class={"lot " + (l == lot ? "active" : "")}
-                on:click={() => {
-                    lot = l;
-                }}
-            >
-                {l}
-            </button>
-        {/each}
+    <div style="display:grid;align-items:center;text-align:right;">
+        <div>
+            {#each lots as l}
+                <button
+                    class={"lot " + (l == lot ? "active" : "")}
+                    on:click={() => {
+                        lot = l;
+                    }}
+                >
+                    {l}
+                </button>
+            {/each}
+        </div>
     </div>
 </div>
 
@@ -56,6 +58,8 @@
         text-align: center;
         display: grid;
         grid-template-columns: 1fr auto 1fr;
+        border: solid;
+        border-width: 0 0 1px 0;
     }
 
     button.lot {

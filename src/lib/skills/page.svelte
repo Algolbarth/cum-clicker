@@ -81,3 +81,9 @@
         <SkillView bind:skill_point bind:skill bind:skills />
     {/each}
 </div>
+
+<style>
+    hr {
+        color: white;
+    }
+</style>

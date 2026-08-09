@@ -79,7 +79,7 @@
   {:else if page == "Skills"}
     <Skills bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {:else if page == "Settings"}
-    <Settings bind:username bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers />
+    <Settings bind:username bind:cum bind:skills bind:skill_point bind:dick bind:hand bind:buildings bind:workers bind:orgasm bind:big_orgasm bind:can_orgasm bind:excitement />
   {/if}
 
   <Taskbar bind:page bind:orgasm bind:big_orgasm bind:can_orgasm />

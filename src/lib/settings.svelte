@@ -18,6 +18,10 @@
     export let hand: Boost;
     export let buildings: Building[];
     export let workers: Worker[];
+    export let orgasm: number;
+    export let big_orgasm: number;
+    export let can_orgasm: number;
+    export let excitement: number;
 
     let name: string = username!;
     let files: any;
@@ -27,9 +31,17 @@
         if (files) {
             let file = files[0];
             const content = await file.text();
-            let log = await load(content);
+            let log = await load(content, workers, buildings, skills);
             if (log != undefined) {
                 username = log.username;
+                name = username!;
+                cum = log.cum;
+                dick.level = log.dick;
+                hand.level = log.hand;
+                workers = log.workers;
+                buildings = log.buildings;
+                skill_point = log.skill_point;
+                skills = log.skills;
             }
         }
     }
@@ -46,15 +58,46 @@
 
         if (selected) {
             const content = await readTextFile(selected as string);
-            let log = await load(content);
+            let log = await load(content, workers, buildings, skills);
             if (log != undefined) {
                 username = log.username;
+                name = username!;
+                cum = log.cum;
+                dick.level = log.dick;
+                hand.level = log.hand;
+                workers = log.workers;
+                buildings = log.buildings;
+                skill_point = log.skill_point;
+                skills = log.skills;
             }
         }
     }
 
     async function logout() {
         username = undefined;
+
+        orgasm = 0;
+        big_orgasm = 0;
+        can_orgasm = 0;
+
+        excitement = 0;
+
+        dick.reset();
+        dick.level = 1;
+        hand.reset();
+
+        for (const worker of workers) {
+            worker.reset();
+        }
+
+        for (const building of buildings) {
+            building.reset();
+        }
+
+        skill_point = 0;
+        for (const skill of skills) {
+            skill.reset();
+        }
     }
 </script>
 
@@ -91,14 +134,15 @@
         <br />
         <br />
 
-        <button on:click={logout}>Se déconnecter</button>
+        <button on:click={logout} class="logout">Se déconnecter</button>
 
         <br />
         <br />
 
         <button
+            class="save"
             on:click={() => {
-                save(username!);
+                save(username!, cum, dick, hand, workers, buildings, skill_point, skills);
                 if (is_desktop) {
                     saved = true;
                     setTimeout(() => {
@@ -115,12 +159,35 @@
 </div>
 
 {#if saved}
-    <div class="shadow"></div>
+    <div class="window shadow"></div>
 
-    <div class="window">Sauvegarde effectuée avec succès</div>
+    <div class="window saved">Sauvegarde effectuée avec succès</div>
 {/if}
 
 <style>
+    div.body {
+        text-align: center;
+    }
+
+    div.shadow {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    div.saved {
+        left: 30vw;
+        width: 40vw;
+
+        top: 25vh;
+        height: 50vh;
+
+        border: solid;
+        border-color: white;
+
+        display: grid;
+        align-items: center;
+        text-align: center;
+    }
+
     input#files {
         border: solid;
         border: 1px solid #ccc;
@@ -138,9 +205,20 @@
         background: transparent;
         width: 20vw;
         padding: 0;
+        text-align: center;
     }
 
     button {
         width: 20vw;
+    }
+
+    button.save {
+        color: green;
+        border-color: green;
+    }
+
+    button.logout {
+        color: red;
+        border-color: red;
     }
 </style>

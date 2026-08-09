@@ -11,4 +11,8 @@ export class Skill {
         this.skill_needed = skill_needed;
         this.description = description;
     };
+
+    reset() {
+        this.unlock = false;
+    };
 };
