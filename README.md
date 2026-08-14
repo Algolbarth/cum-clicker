@@ -6,11 +6,7 @@ Best clicker ever.
 
 ## 🕹️ Install
 
-Download release files here :
-
-### [🪟 For Windows](https://github.com/Algolbarth/cum-clicker/blob/main/release/windows)
-
-### [🐧 For Linux](https://github.com/Algolbarth/cum-clicker/blob/main/release/linux)
+### [Download last version here (🐧 Linus + 🪟 Windows)](https://github.com/Algolbarth/cum-clicker/releases)
 
 ## 🛠️ Requirements for dev
 Cum-Clicker use Tauri (typescript/svelte + Rust) to build a webapp and a desktop application with the same architecture. Deno is used to compile typescript.
